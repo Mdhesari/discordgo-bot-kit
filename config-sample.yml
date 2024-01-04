@@ -1,0 +1,7 @@
+type: yml
+
+discord:
+  name: BotName
+  # do we need for specific guild? if not leave it empty
+  guild_id:
+  token: YOUR_DISCORD_BOT_TOKEN
