@@ -5,6 +5,8 @@ import (
 	"log"
 	"mdhesari/discordgo-bot-kit/config"
 	"mdhesari/discordgo-bot-kit/delivery/websocketserver"
+	"mdhesari/discordgo-bot-kit/handler/interactionhandler"
+	"mdhesari/discordgo-bot-kit/handler/messagehandler"
 	"os"
 	"os/signal"
 	"syscall"
@@ -23,7 +25,10 @@ func init() {
 
 func main() {
 	// add as many handlers as you want implementing websocketserver.Handler...
-	var handlers []websocketserver.Handler
+	handlers := []websocketserver.Handler{
+		messagehandler.New(&cfg.Discord),
+		interactionhandler.New(&cfg.Discord),
+	}
 
 	server := websocketserver.New(&cfg, handlers, discordgo.IntentsAll)
 	server.Serve()
