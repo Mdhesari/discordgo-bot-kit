@@ -15,7 +15,7 @@ func (h Handler) ReplyCommands(s *discordgo.Session, msg *discordgo.MessageCreat
 
 	// Just sample command check
 	if msg.Content == "/ping" {
-		_, err := s.ChannelMessageSend(msg.ChannelID, "pong")
+		_, err := s.ChannelMessageSend(msg.ChannelID, "pong "+h.config.Name)
 		if err != nil {
 			log.Println(err)
 		}
