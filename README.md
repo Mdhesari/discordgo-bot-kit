@@ -30,6 +30,24 @@ go run cmd/main.go
 docker compose up -d
 ```
 
+### Project Structure
+
+#### cmd/main.go
+
+Config and initialize our discord bot web socket server.
+
+#### config/config.go, load.go
+
+Load and create configurations like bot name and token.
+
+#### delivery/websocketserver/server.go
+
+Create and initialize server websocket connection.
+
+#### handler/messagehandler, interactionhandler, \*…handler
+
+Server handler business logic layer where we register different handlers for different sake.
+
 ## How to Contribute
 
 Anyone and everyone is welcome to [contribute](.github/CONTRIBUTING.md). Start
